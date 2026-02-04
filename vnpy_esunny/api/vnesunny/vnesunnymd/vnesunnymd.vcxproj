@@ -23,7 +23,7 @@
     <ProjectGuid>{4B0BF1F5-906B-4C82-B195-A851FB30397F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>vnesunnymd</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -162,10 +162,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\esunny\EsTradeAPI.h" />
-    <ClInclude Include="..\..\include\esunny\EsTradeAPIDataType.h" />
-    <ClInclude Include="..\..\include\esunny\EsTradeAPIError.h" />
-    <ClInclude Include="..\..\include\esunny\EsTradeAPIStruct.h" />
     <ClInclude Include="..\..\include\esunny\TapAPICommDef.h" />
     <ClInclude Include="..\..\include\esunny\TapAPIError.h" />
     <ClInclude Include="..\..\include\esunny\TapDataCollectAPI.h" />

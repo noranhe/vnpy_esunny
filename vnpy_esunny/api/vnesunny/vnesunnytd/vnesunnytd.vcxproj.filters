@@ -21,28 +21,10 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\esunny\EsTradeAPIStruct.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\esunny\TapAPICommDef.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\esunny\TapAPIError.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\esunny\TapQuoteAPI.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\esunny\TapQuoteAPIDataType.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\esunny\EsTradeAPI.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\esunny\EsTradeAPIDataType.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\esunny\EsTradeAPIError.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\vnesunny.h">
@@ -52,6 +34,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="vnesunnytd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\esunny\TapTradeAPI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\esunny\TapTradeAPIDataType.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
