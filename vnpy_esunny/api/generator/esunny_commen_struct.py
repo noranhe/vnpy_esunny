@@ -10,7 +10,7 @@ TapAPICommodity = {
 }
 
 TapAPIContract = {
-    "Commodity": "dict",
+    "Commodity": "TapAPICommodity",
     "ContractNo1": "string",
     "StrikePrice1": "string",
     "CallOrPutFlag1": "char",
