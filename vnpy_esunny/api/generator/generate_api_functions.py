@@ -346,8 +346,10 @@ class ApiGenerator:
         parent_var: str = "data",
         flatten: bool = True,
         key_suffix: str = "",
+        use_arrow: bool = False,
     ) -> None:
-        """展开嵌套 struct。flatten=True 时仅用 suffix 区分同名：键为 字段名+key_suffix；否则写为子 dict。"""
+        """展开嵌套 struct。flatten=True 时仅用 suffix 区分同名；use_arrow=True 时用 -> 访问首层（指针）。"""
+        sep = "->" if use_arrow else "."
         if flatten:
             for nf, nt in self.structs.get(struct_type, {}).items():
                 if not nf:
@@ -358,20 +360,22 @@ class ApiGenerator:
                         f,
                         nf,
                         nt,
-                        f"{member_prefix}.{nf}",
+                        f"{member_prefix}{sep}{nf}",
                         parent_var=parent_var,
                         flatten=True,
                         key_suffix=sub_suffix,
+                        use_arrow=False,
                     )
                     continue
                 key = nf + key_suffix
+                access = f"{member_prefix}{sep}{nf}"
                 if nt == "string":
                     f.write(
-                        f"\t\t{parent_var}[\"{key}\"] = toUtf({member_prefix}.{nf});\n"
+                        f"\t\t{parent_var}[\"{key}\"] = toUtf({access});\n"
                     )
                 else:
                     f.write(
-                        f"\t\t{parent_var}[\"{key}\"] = {member_prefix}.{nf};\n"
+                        f"\t\t{parent_var}[\"{key}\"] = {access};\n"
                     )
             return
         f.write(f"\t\tdict {struct_field};\n")
@@ -448,18 +452,20 @@ class ApiGenerator:
                                         "\t\tdata[\"BillText\"] = toUtf(std::string(task_data->BillText, task_data->BillLen));\n"
                                     )
                                     continue
-                                if struct_type in self.structs:
+                                base_type = struct_type[:-1] if struct_type.endswith("*") else struct_type
+                                if base_type in self.structs:
                                     sk = self._flatten_key_suffix(
                                         struct_field, first_nested
                                     )
                                     self._write_nested_struct(
                                         f,
                                         struct_field,
-                                        struct_type,
+                                        base_type,
                                         f"task_data->{struct_field}",
                                         parent_var="data",
                                         flatten=True,
                                         key_suffix=sk,
+                                        use_arrow=struct_type.endswith("*"),
                                     )
                                     first_nested = False
                                     continue
